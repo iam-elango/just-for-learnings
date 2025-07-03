@@ -2,45 +2,159 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Animated Logo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - Sri Eshwar</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    body {
+    * {
       margin: 0;
       padding: 0;
-      height: 100vh;
-      background: #0e0e0e;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #004aad, #00c4ff);
+      color: #002147;
+      min-height: 100vh;
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
     }
 
-    .logo {
-      width: 200px;
-      height: 200px;
-      animation: rotateFade 5s infinite ease-in-out;
+    .login-container {
+      background: white;
+      padding: 40px 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
     }
 
-    @keyframes rotateFade {
-      0% {
-        opacity: 0;
-        transform: rotate(0deg) scale(0.5);
-      }
-      50% {
-        opacity: 1;
-        transform: rotate(180deg) scale(1.2);
-      }
-      100% {
-        opacity: 0;
-        transform: rotate(360deg) scale(0.5);
+    .login-container img {
+      width: 80px;
+      margin-bottom: 15px;
+    }
+
+    .login-container h2 {
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+      color: #004aad;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    .form-group input:focus {
+      border-color: #00c4ff;
+      outline: none;
+    }
+
+    .error {
+      color: red;
+      font-size: 0.85rem;
+      margin-top: 5px;
+      display: none;
+    }
+
+    .login-button {
+      background-color: #004aad;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.3s ease;
+    }
+
+    .login-button:hover {
+      background-color: #00338e;
+    }
+
+    .footer-text {
+      margin-top: 20px;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    @media (max-width: 480px) {
+      .login-container {
+        padding: 30px 20px;
       }
     }
   </style>
 </head>
 <body>
+  <div class="login-container">
+    <img src="logo.jpg" alt="Sri Eshwar Logo" />
+    <h2>Login to Sri Eshwar</h2>
+    <form id="loginForm" novalidate>
+      <div class="form-group">
+        <label for="username">Email or Username</label>
+        <input type="text" id="username" placeholder="Enter your username" />
+        <span class="error" id="userError">Please enter a valid username</span>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter your password" />
+        <span class="error" id="passError">Password must be at least 6 characters</span>
+      </div>
+      <button type="submit" class="login-button">Login</button>
+    </form>
+    <p class="footer-text">© 2025 Sri Eshwar College of Engineering</p>
+  </div>
 
-  <!-- Replace "your-image-path.png" with the path to your logo -->
-  <img src="logo.jpg" alt="Logo" class="logo" />
+  <script>
+    const form = document.getElementById('loginForm');
+    const username = document.getElementById('username');
+    const password = document.getElementById('password');
+    const userError = document.getElementById('userError');
+    const passError = document.getElementById('passError');
 
+    form.addEventListener('submit', function (e) {
+      let valid = true;
+
+      // Username Validation
+      if (username.value.trim() === '') {
+        userError.style.display = 'block';
+        valid = false;
+      } else {
+        userError.style.display = 'none';
+      }
+
+      // Password Validation
+      if (password.value.length < 6) {
+        passError.style.display = 'block';
+        valid = false;
+      } else {
+        passError.style.display = 'none';
+      }
+
+      if (!valid) {
+        e.preventDefault(); // prevent form submission
+      } else {
+        alert('Login successful (example only)');
+      }
+    });
+  </script>
 </body>
 </html>
