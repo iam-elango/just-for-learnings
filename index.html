@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Animated Logo</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background: #0e0e0e;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .logo {
+      width: 200px;
+      height: 200px;
+      animation: rotateFade 5s infinite ease-in-out;
+    }
+
+    @keyframes rotateFade {
+      0% {
+        opacity: 0;
+        transform: rotate(0deg) scale(0.5);
+      }
+      50% {
+        opacity: 1;
+        transform: rotate(180deg) scale(1.2);
+      }
+      100% {
+        opacity: 0;
+        transform: rotate(360deg) scale(0.5);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Replace "your-image-path.png" with the path to your logo -->
+  <img src="logo.png" alt="Logo" class="logo" />
+
+</body>
+</html>
