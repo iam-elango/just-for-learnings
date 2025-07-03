@@ -1,29 +1,30 @@
-<!-- Save this as display.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login Info</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login Info Display</title>
   <style>
     body {
       font-family: 'Poppins', sans-serif;
+      background: #f5faff;
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       min-height: 100vh;
-      background: #f0f8ff;
     }
     table {
       border-collapse: collapse;
-      width: 50%;
+      width: 60%;
+      max-width: 600px;
       background: white;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
     th, td {
-      border: 1px solid #ccc;
-      padding: 12px;
+      padding: 15px;
       text-align: center;
+      border: 1px solid #ddd;
+      font-size: 1rem;
     }
     th {
       background-color: #004aad;
@@ -38,14 +39,14 @@
       <th>Password</th>
     </tr>
     <tr>
-      <td id="displayUsername"></td>
-      <td id="displayPassword"></td>
+      <td id="showUsername">--</td>
+      <td id="showPassword">--</td>
     </tr>
   </table>
 
   <script>
-    document.getElementById('displayUsername').textContent = localStorage.getItem('username') || 'N/A';
-    document.getElementById('displayPassword').textContent = localStorage.getItem('password') || 'N/A';
+    document.getElementById('showUsername').textContent = localStorage.getItem('username') || 'N/A';
+    document.getElementById('showPassword').textContent = localStorage.getItem('password') || 'N/A';
   </script>
 </body>
 </html>
